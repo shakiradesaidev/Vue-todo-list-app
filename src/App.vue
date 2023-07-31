@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container mx-auto">
+    <h1 class="text-4xl font-bold mb-4">Big phone store To-do list</h1>
+    <TodoForm />
+    <div class="pendingTask">
+    <h2 class="text-2xl font-bold mt-4">Pending Tasks</h2>
+    <TodoList :todos="pendingTodos" />
+    </div>
+    <div class="completeTask">
+    <h2 class="text-2xl font-bold mt-4">Completed Tasks</h2>
+    <button @click="showCompleted = !showCompleted">
+      {{ showCompleted ? 'Hide Completed Tasks' : 'Show Completed Tasks' }}
+    </button>
+    <TodoList v-if="showCompleted" :todos="completedTodos" />
+  </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodoForm from './components/TodoForm.vue';
+import TodoList from './components/TodoList.vue';
+import { mapGetters } from 'vuex';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    TodoForm,
+    TodoList,
+  },
+  data() {
+    return {
+      showCompleted: false,
+    };
+  },
+  computed: {
+    ...mapGetters(['pendingTodos', 'completedTodos']),
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="./assets/styles.css"></style>
