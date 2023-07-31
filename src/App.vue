@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <h1 class="text-4xl font-bold mb-4">Big phone store To-do list</h1>
+    <h1 class="text-4xl font-bold mb-4 main-heading">Big phone store To-do list</h1>
     <TodoForm />
     <div class="pendingTask">
     <h2 class="text-2xl font-bold mt-4">Pending Tasks</h2>

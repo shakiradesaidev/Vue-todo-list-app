@@ -1,6 +1,6 @@
 <template>
   <div class="formAddTask">
-    <input v-model="newTask" type="text" placeholder="New Task" />
+    <input v-model="newTask" type="text" placeholder="Name of task" />
     <input v-model="dueDate" type="date" placeholder="Due Date" />
     <br>
     <button @click="addTodo" class="px-4 py-2 bg-blue-500 text-white" >Add Task</button>
